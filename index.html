@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Anangram app</title>
+	</head>
+	<style>
+		*{
+			font-size:50px;
+			background-color:azure;
+		}
+	</style>
+	<body>
+		<center>
+			<h1>Anangram checker</h1>
+
+			<form onsubmit="check()">
+				<input type="text" placeholder="enter string1" id="str1"/>
+				<br><br>
+				<input type="text" placeholder="enter string2" id="str2"/>
+				<br><br>
+
+				<input type="submit" value="check" />
+			</form>
+			<h2 id="msg"/>
+			<script>
+				function check(){
+						event.preventDefault();
+						let str1=document.getElementById("str1");
+						let str2=document.getElementById("str2");
+						let msg=document.getElementById("msg");
+						if (str1.value===""){
+								alert("please enter string 1");
+								str1.focus();
+								msg.innerHTML="";
+								return;
+							}
+						if (str2.value===""){
+								alert("please enter string 2");
+								str2.focus();
+								msg.innerHTML="";
+								return;
+							}
+						let org1=str1.value;
+						let org2=str2.value;
+						let sorting1=org1.split("").sort().join("");
+						let sorting2=org2.split("").sort().join("");
+						if (sorting1===sorting2){
+							msg.innerHTML="Its a anagram";
+							}
+						else{
+							msg.innerHTML="Its not a anagram";
+							}
+
+			
+			}
+			</script>
+		</center>
+	</body>
+</html>
